@@ -1,0 +1,560 @@
+\documentclass[8pt]{article}
+\usepackage{allan-eason}
+
+\usepackage{siunitx}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{svg.path}
+
+\graphicspath{ {./images/} }
+
+
+\newcommand{\Date}{\today}
+\newcommand{\Name}{GCSE CS Revision Sheet}
+\newcommand{\Subname}{Eason's Toolbox}
+\newcommand{\Title}{\Name\\ \Large{\Subname}}
+
+\newcommand{\Author}{Yicheng Shao}
+
+\theoremstyle{remark}
+
+\author{\Author}
+\title{\Title}
+\date{Version 1. \Date}
+
+\lhead{\Name}
+
+\newtheorem{method}{Method}[subsection]
+\newtheorem{knowledge}[method]{Knowledge}
+\newtheorem{example}[method]{Example}
+
+\begin{document}
+
+	\maketitle
+
+	\tableofcontents
+
+    \section*{What is this and why this?}
+    
+        GCSE Computer Science is a knowledge-intense exam. Unlike what most people think, Computer Science is a subject that requires a lot of writing. Therefore, I made this document based on the CIE IGCSE Computer Science (9-1) Syllabus from 2023 onwards. I hope this could help with you IGCSE studies!
+
+        I am also an IGCSE student so errors are inevitable in this document. Feel free to email \href{eason.syc@icloud.com}{eason.syc@icloud.com} to point out any mistakes or submit an issue on the GitHub page!
+        
+    \section{Data Representation}
+        \subsection{Number Systems}
+
+        \begin{knowledge}
+            \textbf{Analogue data} is continuous. \textbf{Digital data} is discrete.
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{Denary} is a base-10 number system. \textbf{Binary} is a base-2 number system. \textbf{Hexadecimal} is a base-16 number system.
+        \end{knowledge}
+
+        \begin{knowledge}
+            Binary is required as computers process data using logic gates and registers.
+        \end{knowledge}
+
+        \begin{method}
+            Digits in decimal, hexadecimal, binary can be converted as
+            \begin{center}
+                \begin{tabular}{r|c|c|c|c}
+                    \textbf{Denary} & 0 & 1 & 2 & 3\\\hline
+                    \textbf{Hexadecimal} & 0 & 1 & 2 & 3\\\hline
+                    \textbf{Binary} & 0000 & 0001 & 0010 & 0011\\\hline\hline
+                    \textbf{Denary} & 4 & 5 & 6 & 7\\\hline
+                    \textbf{Hexadecimal} & 4 & 5 & 6 & 7\\\hline
+                    \textbf{Binary} & 0100 & 0101 & 0110 & 0111\\\hline\hline
+                    \textbf{Denary} & 8 & 9 & 10 & 11\\\hline
+                    \textbf{Hexadecimal} & 8 & 9 & A & B\\\hline
+                    \textbf{Binary} & 1000 & 1001 & 1010 & 1011\\\hline\hline
+                    \textbf{Denary} & 12 & 13 & 14 & 15\\\hline
+                    \textbf{Hexadecimal} & C & D & E & F\\\hline
+                    \textbf{Binary} & 1100 & 1101 & 1110 & 1111\\
+                \end{tabular}
+            \end{center}
+        \end{method}
+        
+        \begin{method}
+            To convert binary into hexadecimal, we map four consecutive digits (divide from the right) to one digit in hexadecimal. Vice versa.
+        \end{method}
+
+        \begin{method}
+            To convert binary or hexadecimal into denary, we write the digit it represents on top (e.g. 2, 4, 8 or 16, 256, 4096), and times it with the number below and sum them together. Write from right to left.
+        \end{method}
+
+        \begin{method}
+            To convert denary into binary or hexadeximal, we write down the result of integer division of the number and the base, and use the remainder to continue. When we get a remainder that is less than the base, we write the result backwards.
+        \end{method}
+
+        \begin{knowledge}
+            Programmers use hexadecimals as it is easier for human to read. Examples include MAC code.
+        \end{knowledge}
+
+        \begin{knowledge}
+            Binary addition works similarly as denary addition.
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{Overflow error} stands for when data is too big when stored in certain amounts of digits. It could happen in binary addition or binary shifts.
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{Left shift} is defined by shifting all the digits to the left. \textbf{Right shift} is defined similarly.
+
+            We fill in the empty slots with 0 and simply delete the slots that went out.
+        \end{knowledge}
+
+        \begin{knowledge}
+            Left shift is timing the original number by the base. Right shift is (integer) dividing it.
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{Negative binary is stored as follows.}
+            \begin{itemize}
+                \item Find the binary of the original number (i.e. non-negative).
+                \item Invert all the 0s and 1s.
+                \item Add this by 1 (treat it as a positive number).
+            \end{itemize}
+            This is called \textbf{two's complement}.
+        \end{knowledge}
+
+        \subsection{Text, Sound and Image}
+
+        \begin{knowledge}
+            We store text using \textbf{character sets}. ASCII code and Unicode are two examples. Unicode are more universal but is bigger storing single character.
+        \end{knowledge}
+
+        \begin{knowledge}
+            An \textbf{image} is a series of \textbf{pixels} that are converted to binary. The \textbf{resolution} is the number of pixels in an image. The \textbf{colour depth} is the number of bits used to store each colour. There is \textbf{metadata} at the beginning of a file to state those information. The file size and quality of the image increases as the resolution and colour depth increase.
+        \end{knowledge}
+
+        \begin{knowledge}
+            A \textbf{sound sampling} is done to convert analogue sound data into digital data. The \textbf{sample rate} is the number of samples taken in a second. The \textbf{sample resolution} is the number of bits per sample. The accuracy of the recording and the file size increases as the sample rate and resolution increase.
+        \end{knowledge}
+
+        \subsection{Data Storage and Compression}
+
+        \begin{knowledge}
+            Following are required data representation units:
+            \begin{itemize}
+                \item A \textbf{bit} is a binary digit.
+                \item A \textbf{nibble} is four bits.
+                \item A \textbf{byte} is eight bits.
+                \item A \textbf{kibibyte} (KiB) is 1024 bytes.
+                \item A \textbf{mebibyte} {MiB} is 1024 kibibytes.
+                \item A \textbf{gibibyte} {GiB} is 1024 mebibytes.
+                \item A \textbf{tebibyte} {TiB} is 1024 gibibytes.
+                \item A \textbf{pebibyte} {PiB} is 1024 tebibytes.
+                \item A \textbf{exbibyte} {EiB} is 1024 pebibytes.
+            \end{itemize}
+        \end{knowledge}
+
+        \begin{method}
+            Way to calculate size of image:
+            \[
+                \text{size of image} = \text{width of image} \times \text{height of image} \times \text{colour depth of image} \times \text{number of images in file}.
+            \]
+        \end{method}
+
+        \begin{method}
+            Way to calculate size of sound track:
+            \[
+                \text{size of soundtrack} = \text{sample rate} \times \text{sample resolution} \times \text{length of soundtrack}.
+            \]
+        \end{method}
+
+        \begin{knowledge}
+            \textbf{Data compression} is the method used to reduce the size of a file. It is necessary as
+            \begin{itemize}
+                \item it will require smaller storage;
+                \item it will take less time to transmit;
+                \item it will be quicker to upload and download;
+                \item it will require smaller bandwidth.
+            \end{itemize}
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{Lossy} compression can not be reversed, it permantly removes unnecessary and redundant data in file. Examples to compress include reducing resolution, reducing colour depth, and reducing sample rate. Examples of files include .jpg, .mp3.
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{Lossless} compression reduces size without loss of information. Examples to compress include run length encoding (RLE) which groups together repeating data. Examples of files include .midi.
+        \end{knowledge}
+
+    \section{Data Transmission}
+
+        \subsection{Types and Methods of Data Transmission}    
+
+        \begin{knowledge}
+            Data is transmitted in small units called \textbf{packets}. They are divided into \textbf{packet header}, \textbf{payload} and \textbf{trailer}.
+        \end{knowledge}
+        
+        \begin{knowledge}
+            Packet header includes the destination address, packet number and originators address. The addresses are often IP addresses.
+        \end{knowledge}
+
+        \begin{knowledge}
+            The payload is the actual data you are sending.
+        \end{knowledge}
+
+        \begin{knowledge}
+            The trailer (a.k.a. footer) indicates end of packet and the error detection systems used.
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{Packet switching} is the process of transmitting packets over a \textbf{network} with \textbf{routers}. The following is the process:
+            \begin{itemize}
+                \item Data is broken down into packets;
+                \item Each packet could take a different route;
+                \item A router controls the route a packet takes;
+                \item Packets may arrive out of order;
+                \item Once the last packet has arrived, packets are reordered.
+            \end{itemize}
+        \end{knowledge}
+
+        \begin{knowledge}
+            Data transmission can be divided into two types, \textbf{serial} and \textbf{parallel}.
+        \end{knowledge}
+
+        \begin{knowledge}
+            Serial transmission is transmitted one bit at a time along one wire. Parallel transmission is transmitted multiple bits at a time along multiple wires.
+
+            \textbf{Advantages of Serial Transmission:} (which relates to a disadvantage of parallel transmission)
+            \begin{itemize}
+                \item The data is transmitted in sequence, so there is less chance of data being skewed.
+                \item The data is transmitted along a single wire hence less chance of \textbf{interference}, with less chance of error.
+                \item Only one wire is necessary so it is cheaper.
+            \end{itemize}
+
+            \textbf{Advantages of Parallel Transmission:} (which relates to a disadvantage of series transmission) Data transmission is faster since multiple bits are sent at a time.
+
+            \textbf{Disadvantage for serial:} a start bit and an end bit is necessary.
+
+            \textbf{Advantage for parallel:} No requirement to convert data across network.
+        \end{knowledge}
+
+        \begin{knowledge}
+            Data transmission can be divided into three types, \textbf{simplex}, \textbf{half-duplex} and \textbf{duplex}.
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{Simplex} transmission is when data transmits in only one direction. \textbf{Half-duplex} is when data can be transmitted bi-directionally but only one direction at a time. \textbf{Full-duplex} is when data can be transmitted bi-directionally simultaniously.
+        \end{knowledge}
+
+        \begin{knowledge}
+            The \textbf{USB}, or universal series bus, is a standard (protocol) for data transmission.
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{Advantages for USB}:
+            \begin{itemize}
+                \item It is a very simple interface, and a very low rate of error (it is probably idiot-proof).
+                \item The speed is relatively high.
+                \item It is a very universal standard and widely used.
+                \item It is automatic in terms of detection while inserted, including downloading of drivers.
+                \item It can be used as a power source.
+            \end{itemize}
+
+            \textbf{Disadvantages for USB}:
+            \begin{itemize}
+                \item USB is length-limited.
+                \item USB is not as fast as certain interfaces such as \textbf{ethernet} (and thunderbolt, PCIe, SATA).
+            \end{itemize}
+        \end{knowledge}
+
+        \subsection{Methods of Error Detection}
+
+        \begin{knowledge}
+            \textbf{Error detection} is necessary since during transmission data can be interfered, such as data loss, data gain and data change.
+        \end{knowledge}
+        
+        \begin{knowledge}
+            \textbf{Parity check} can be odd or even (which is determined previously). The odd or even stands for the number of 1s in the data. \textbf{Parity block check} and \textbf{parity byte} is also used (vertical and horizontal parity checks) to detect and potentially recover data. 
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{Checksum} is using a calculated value to check for errors. This value is calculated from the data before transmission and compared with the result of the value after transmissino. Examples include modulus 11 (md5, sha1, shaxxx).
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{Echo check} is when data is transmitted back to the sender to check.
+        \end{knowledge}
+
+        \begin{knowledge}
+            A \textbf{check digit} is like a checksum and parity combined. The checksum data is included in the data itself. Examples include ISBN and bar codes. 
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{ARQ} is automatic repeat query when data can be repeatedly transmitted when error occurs. It involves \textbf{acknowledgement} and \textbf{timeout}.
+
+            \textbf{A positive acknowledgement involves:}
+            \begin{itemize}
+                \item The sending device transmits the first data packet;
+                \item The receiving device receives the data and checks it ofr errors;
+                \item If it does not have error: it sends a positive acknowledgement and the sender continues sending the next packet.
+                \item If the sender does not receive the positive acknowledgement within the set timeframe, this is a timeout, and it will continue sending the same packet until a positive acknowledgement occurs or a limit is reached.
+            \end{itemize}
+
+            \textbf{A negative ackowledgement involves:}
+            \begin{itemize}
+                \item The sending device transmits the first data packet;
+                \item The receiving device receives the data and checks it ofr errors;
+                \item If it does not have error: no further action. The sender begins to send the next packet after the set time period.
+                \item If it does have an error: A negative acknowledgement is sent. The sender will resend the data.
+            \end{itemize}
+        \end{knowledge}
+
+        \subsection{Encryption}
+            \begin{knowledge}
+                \textbf{Encryption} is a method of data protection while data is transmitted since hackers may try and intercept the data while transmitting.
+            \end{knowledge}
+
+            \begin{knowledge}
+                The \textbf{plain text} is the original text, the \textbf{encryption key} is the method used to encrypt it into the \textbf{cipher text} which seems meaningless.
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Symmetric} encryption is when the encryption and decryption uses the same key.
+                \begin{itemize}
+                    \item The plain text is encrypted into cipher text using an encryption key;
+                    \item The cipher text and the encryption key are sent separately to the receiving device;
+                    \item The same key is then used to decrypt the cipher text back into its plain text form.
+                \end{itemize}
+
+                \textbf{Asymmetric} encryption is when public key (encryption) and private key (decryption) are used separately.
+                \begin{itemize}
+                    \item The plain text is encrypted into cipher text using a public key;
+                    \item The cipher text is transmitted to the receiving device;
+                    \item The ciphter text is decrypted with a private key.
+                \end{itemize}
+
+                The reverse (private for encrypting and public for decrypting) can be worked for digital signatures, e.g. SSL.
+            \end{knowledge}
+
+    \section{Hardware}
+        
+        \subsection{Computer Architecture}
+            \begin{knowledge}
+                \textbf{CPU}, central processing unit processes instructions and data that are input into the computer so that the result can be output. \textbf{Microprocessor} is a type of integrated circuit on a single chip.
+            \end{knowledge}
+
+            \begin{knowledge}
+                Components in a von-Neumann CPU include:
+                \begin{center}
+                    \begin{tabular}{c|p{0.5\linewidth}}
+                        Control Unit (CU) & A component that sends signals to control the interactions of all other components during the fetch-decode-execute cycle. \\\hline\hline
+                        Arithmetic Logic Unit (ALU) & A component that performs all calculations and logical operations required during the fetch-decode-execute cycle.\\\hline\hline
+                        Address Bus & A bus that is used to transmit addresses within the CPU and to, and from RAM.\\\hline
+                        Data Bus & A bus that is used to transmit data or instructions within the CPU, and to and from RAM.\\\hline
+                        Control Bus & A bus that is used to transmit control signals that are sent by the control unit.\\\hline\hline
+                        Memory Address Register (MAR) & A register that stores the address of where data or an instruction is located in RAM.\\\hline
+                        Memory Data Register (MDR) & A register that stores data or an instruction when it is fetched from RAM.\\\hline
+                        Program Counter (PC) & A register that holds the address of the next instruction to be processed.\\\hline
+                        Current Instruction Register (CIR) & A register that holds the instruction that is currently being processed.\\\hline
+                        Accumulator (ACC) & A register that is built into the ALU that is used to store the interim results of calculations.
+                    \end{tabular}
+                \end{center}
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{The fetch-decode-execute} cycle is the process in which CPU processes instructions (which usually adjusts data).
+
+                \begin{itemize}
+                    \item The data within the PC is sent to the MAR.
+                    \item PC adds itself by one instruction.
+                    \item The MAR data is sent to the RAM via the Address Bus.
+                    \item The data within that address is sent to the MDR via the Data Bus.
+                    \item This data (the instruction) is sent to the CIR.
+                    \item The CPU decodes the instruction using an instruction set. (A set of all commands)
+                    \item The CPU fetches all data similarly but process them with ALU (ACC is also involved for loops).
+                \end{itemize}
+
+                The control bus is involved in the fetch stage while data is transmitted via the two other buses.
+            \end{knowledge}
+
+            \begin{knowledge}
+                The \textbf{core} (which is a unit of the FDE cycle execution), the \textbf{clock speed} (which is a speed where instructions are processed), and the \textbf{cache} (which is a type of RAM-like volatile storage but smaller and quicker) will affect the performance of a CPU.
+            \end{knowledge}
+
+            \begin{knowledge}
+                An \textbf{instruction set} is a list of all the commands that can be processed by a CPU and the commands are machine code
+            \end{knowledge}
+
+            \begin{knowledge}
+                An \textbf{embedded system} is used to perform a dedicated function, e.g. domestic appliances, cars, security systems, lighting systems or vending machines. This is different to a \textbf{general purpose computer} that is used to perform many different functions, e.g. a personal computer (PC) or a laptop
+            \end{knowledge}
+
+        \subsection{Input and output devices}
+
+            \begin{knowledge}
+                An \textbf{input device} is a device that allows data to be entered into a computer system.
+            \end{knowledge}
+
+            \begin{knowledge}
+                Input devices include:
+                \begin{center}
+                    \begin{tabular}{p{0.2\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}}
+                        Barcode Scanner & It scans a barcode so that the data stored in the barcode can be obtained. & It is used in a supermarket to get the price of a product and as part of a tock control system.\\\hline
+                        Digital Camera & It captures light through a lens and converts it into binary. & It is built into a mobile phone to allow the user to photograph items or people.\\\hline
+                        Keyboard & It allows the user to press keys that have a designated ASCII/Unicode value that is converted to binary. & It is one of the main methods of input that allows a user to type data into a personal computer.\\\hline
+                        Microphone & It captures soundwaves and converts them to binary. & It is built into a mobile phone to capture the user's voice so that it can be heard by the other users. \\\hline
+                        Optical Mouse & It captures the light that is bounced back from a laser that is shone from the mouse to the surface underneath, to track the mouse's movements. & It is one of the main methods of input that allows a user to select icons and menu options whilst using a personal computer.\\\hline
+                        QR Code Scanner & It uses a sensor or a camera to capture light reflected from a QR code and converts it to binary. & it can be an application that is downloaded onto a mobile phone and used to scan QR codes that store information, e.g. a website link.\\\hline
+                        Scannder (2D and 3D) & They use sensors to capture light that is reflected from a 2D or 3D object and convert it to binary. & It can be used to scan 3D objects to create a digital copy of them.\\\hline
+                        Touch Screen (Resistive, Capacitive and Infra-Red) & They use pressure, conductivity or light to register the touch of a user on a screen. The coordinates of the touch can be calculated. & It is built into a ticket machine to allow a user to select which ticket they would like to buy.
+                    \end{tabular}
+                \end{center}
+            \end{knowledge}
+
+            \begin{knowledge}
+                An \textbf{output device} is a device that allows the result of the data processing to be seen or heard.
+            \end{knowledge}
+
+            \begin{knowledge}
+                Output devices include:
+                \begin{center}
+                    \begin{tabular}{p{0.2\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}}
+                        Actuator & It is a component that outputs an action, often a type of movement, that causes another device to operate. & It can be used in an automated system to move or turn on/off another device, e.g. a light.\\\hline
+                        Digital Light Processing (DLP) Projector & It is a device that uses light reflected from millions of little mirrors to output an image. & It can be used in a classroom to project an image onto an interactive whiteboard.\\\hline
+                        Inkjet Printer & This is a device that squirts liquid ink from nozzles to output a document or image. & Ut can be used in a house to print photographs.\\\hline
+                        Laser Printer & This is a device that uses a rotating drum and powdered toner to output a document. & It can be used in an office to print letters.\\\hline
+                        Light Emitting Diode (LED) Screen & This is a screen that uses LEDs as a backlight to output an image. & the screen can be built into a mobile phone.\\\hline
+                        Liquid Crystal Display (LCD) Projector & This is a device that shines light through crystals and then through a lens to project an image onto a blank wall or screen. & This can be used to project an image in a home cinema system.\\\hline
+                        Liquid Crystal Display (LCD) Screen & This is a screen that shines light through crystals to output an image. & This can be built into a television screen.\\\hline
+                        Speaker & This is a device that outputs sound. & This can be built into a mobile phone so one user can hear another user's voice.\\\hline
+                        3D printer & This is a device that builds layers of material to output a 3D object. & This can be used in medicine to create prosthetic limbs.
+                    \end{tabular}
+                \end{center}
+            \end{knowledge}
+
+            \begin{knowledge}
+                A \textbf{sensor} is also an input device, and it is used in an \textbf{automated system}.
+            \end{knowledge}
+
+            \begin{knowledge}
+                Sensors include:
+                \begin{center}
+                    \begin{tabular}{p{0.2\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}}
+                        Acoustic & This type of sensors measures the level of sound in an environment. & These sensors are used in many applications that involve sound. An acoustic sensor can be used in a security system. It can be placed near a window and constantly measure the level of sound. If it captures a reading that shows a sudden increase in sound, this could mean that the window has been broken and building may be at risk.\\\hline
+                        Accelerometer & This type of sensor measures acceleration forces. These may be static forces, such as the continual force of gravity. They can also be dynamic forces, such as those created by movement and vibrations. & These sensors are used in a wide variety of devices. Mobile phones use an accelerometer to know which way up it is faced, to automatically turn the screen on and off. They can be used to monitor for earthquakes, as they can capture the initial vibrations created. They can also be used in cars to sense when a crash has occured, so that airbags can be inflated.\\\hline
+                        Flow & This type of sensor measures the amount of liquid, gas or steam that is flowing through or around a certain environment. & These sensors are often used in factories and sites such as nuclear power plants. They make sure that the liquid, gas or steam flows at a constant temperature through an environment, such as a pipe. This makes sure that the pipes don't rupture and break due to too much flowing through them. \\\hline
+                        Gas & This type of sensor measures the presence and concentration of a gas within the immediate atmosphere. & These sensors can be used in people's homes. They can be set to measure a certain gas, such as carbon monoxide. They constantly capture the data in the immediate atmosphere to see if too much carbon monoxide is present, which could endanger the health of anyone living in the home.\\\hline
+                    \end{tabular}
+                    \begin{tabular}{p{0.2\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}}
+                        Humidity & This type of sensor measures the level of moisture in the immediate atmosphere. & These sensors can be used in farming and agriculture to make sure that the air in areas such as greenhouses has the correct level of moisture to provide the best growing conditions for the fruits and vegetables. They can also be used in places such as art galleries, to make sure that the humidity level is constant. Too much or too little can ruin paintings.\\\hline
+                        Infra-red & This type of sensor measures infra-red radiation. This type of radiation can be emitted in different amounts by both objects and people. & These sensors can also be used in security systems.
+                        This can be done in two different ways. The device containing the sensor can emit infra-red radiation and when this bounces back to the device, the readings can show from the distance it has travelled whether an intruder is present. It can also operate by capturing the infra-red radiation emitted by the intruder.\\\hline
+                        Level & This type of sensor measures whether a substance, such as a liquid, is at a certain level or amount. & These sensors can be used in a car to make sure that essential liquids, such as oil and fuel, do not get too low.\\\hline
+                        Light & This type of sensor measures the ambient light in a certain environment. It can also measure the presence of a direct light, such as a laser beam. & These sensors can be used in automatic lighting systems. Streetlights can be fitted with a light sensor that will allow the light to turn on in the evening, when it becomes darker.\\\hline
+                        Magnetic field & This type of sensor measures the presence of magnetic field that may be emitted by an obiect. & These sensors can be used to count how many cars pass through a certain area, for example into a car park. The car will disrupt the Earth's naturally magnetic field as it passes over the sensor and the data can be captured by the sensor.\\\hline
+                    \end{tabular}
+                    \begin{tabular}{p{0.2\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}}
+                        Moisture & This type of sensor measures the amount of water that is present in a substance, such as soil. & These sensors can also be used by farming and agriculture, to make sure that the fruits and vegetables have the best level of water in the soil to help them grow.\\\hline
+                        pH & This type of sensor measures the pH level of a substance. & These sensors can be used by environmental agencies to make sure that local lakes and river are not being polluted.\\\hline
+                        Pressure & This type of sensor measures the force of pressure that is applied to the sensor or device.
+                        This could be the pressure created by a solid object, or it could be created by liquid or gas. & These sensors could also be used in a security system.
+                        They can be placed at the base or sides of an opening, such as a window or a door. When that window or door is opened, the pressure will decrease, and the system will recognise that an intruder has entered.\\\hline
+                        Proximity & This type of sensor measures how close an object is in comparison to the sensor. It does this by emitting electromagnetic radiation or an electromagnetic field and measures the radiation as it returns to see if there are any changes. & These types of sensors can be used in robots in manufacturing. They allow the robots to measure how close they are to different objects, when moving around a factory.\\\hline
+                        Temperature & This type of sensor measures the temperature of an object or substance by either directly touching it or capturing data from the surrounding environment. & These types of sensors are used in air conditioning systems. They allow the temperature of a room to be kept at a certain level.
+                    \end{tabular}
+                \end{center}
+            \end{knowledge}
+
+        \subsection{Data Storage}
+            
+            \begin{knowledge}
+                Storage can be divided into two types, \textbf{primary storage} and \textbf{secondary storage}. Primary is the one that is directly accessed by the CPU, secondary is the one that cannot be directly accessed by the CPU (usually by I/O device).
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{RAM}, random access memory, and \textbf{ROM}, read-only memory, are two types of primary storage.
+
+                \begin{center}
+                    \begin{tabular}{p{0.4\linewidth}|p{0.4\linewidth}}
+                        RAM is volatile (temporary). When powered off, the contents are lost. & ROM is non-volatile (permanant). When powered off, the contents remains.\\\hline
+                        RAM stores data and programs currently in use. & ROM stores the bootstrap and the BIOS which boots the computer.\\\hline
+                        RAM contents are constantly being changed. & ROM data are fixed. (It is possile to change, but it is difficult and we usually do not do it.)\\\hline
+                        RAM can be increased by adding components. & ROM are fixed on the motherboard (usually).
+                    \end{tabular}
+                \end{center}
+            \end{knowledge}
+
+            \begin{knowledge}
+                Secondary storage are not directly accessed by the CPU (and buses hence slower), but is necessary for larger storage capacity. There are three main types, \textbf{magnetic}, \textbf{optical} and \textbf{solid-state storage}.
+            \end{knowledge}
+
+            \begin{knowledge}
+                Magnetic storage uses platters which are divided into tracks and sectors. Data is read and written using electromagnets.
+                
+                Optical storage uses lasers to create and read pits and lands.
+                
+                Solid-state (flash memory) uses NAND or NOR technology. Transistors are used as control gates and floating gates.
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Virtual memory} is the type of memory created for temporary use and is an extension to RAM. \textbf{Pages} of data are exchanged between secondary storage and the RAM. When the CPU needs them they will be transferred to the RAM, and when not it will be swapped back to the secondary storage.
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Cloud storage} can be accessed remotely in comparison to storing data locally. Physical servers and storage are needed to store data in cloud storage.
+            \end{knowledge}
+
+            \begin{knowledge}
+                Cloud or local:
+                \begin{center}
+                    \begin{tabular}{p{0.4\linewidth}|p{0.4\linewidth}}
+                        You do not need to pay for cloud storage hardware. & You need to pay for local storage hardware.\\\hline
+                        Yo are not responsible for the security, but you should make sure the third-party service provider is safe. & You need to make sure the storage is regularly checked and updated for security issues.\\\hline
+                        You can access data and resources using different devices from anywhere as long as internet is avaliable. However, if connection fails, you cannot access. If connection is slow, access is slow. & You do not need internet connection.\\\hline
+                        You can increase/decrease storage capacity as you need. & You might have redundant hardware, more than you need.
+                    \end{tabular}
+                \end{center}
+            \end{knowledge}
+
+        \subsection{Network hardware}
+            \begin{knowledge}
+                \textbf{NIC}, or network interface card, is required to connect to the internet. \textbf{MAC} address, or media access control address, is paired with a NIC to identify a device on a network. It is assigned by the manufacturer and never changed. It includes a 14-digit hexadecimal with 7 parts using colons (:) to separate them. It iscreated using the manufacturer code and the serial code. 
+            \end{knowledge}
+
+            \begin{knowledge}
+                A \textbf{router} sends data to a specific destination on a network, assigns IP addresses, and can connect a local network to the
+                internet.
+            \end{knowledge}
+
+            \begin{knowledge}
+                An \textbf{IP address} is allocated by the network and they can be static or dynamic. \textbf{Dynamic} IP addresses are most common and they are assigned every time a device connects to a network. \textbf{Static} IP address is usually provided by the Internet Service Provider and will be the same every time you connect. They are unique and can also be used to identify a device on a network. \textbf{IPv4} consists of 32-bits IP address, with 4 numbers (decimal) and full stops . separating them. \textbf{IPv6} consists of 128-bits (32-digit hexadecimal) with colons separating them and is capable of creating more IP addresses.
+            \end{knowledge}
+    
+    \section{Software}
+
+        \subsection{Types of Software and Interrupts}
+
+        \subsection{Types of Programming Language, Translators and Integrated Development Environments (IDEs)}
+
+    \section{The internet and its uses}
+        
+        \subsection{The internet and the world wide web}
+
+        \subsection{Digital currency}
+
+        \subsection{Cyber security}
+
+    \section{Automated and emerging technologies}
+
+        \subsection{Automated Systems}
+
+        \subsection{Robotics}
+
+        \subsection{Artificial Intelligence}
+
+    \section{Pseudocode Syntax}
+
+    \section{Databases}
+
+    \section{Boolean Logic}
+
+    \section*{Afterwords}
+        
+
+\end{document}
