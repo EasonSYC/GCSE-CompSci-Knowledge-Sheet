@@ -692,12 +692,197 @@
                 A \textbf{URL} (uniform resource locator) is a text-based address for a web page. It contains the protocol, the domain name and the web page/file name.
             \end{knowledge}
 
-            
+            \begin{knowledge}
+                \textbf{HTTP} (hypertext transmission protocol) is a protocol used to transmit requests and the results of the requests between the web browser and the web server.
+                
+                \textbf{HTTPS} (hypertext transfer protocol secure) adds a layer of security by encrypting data using \textbf{digital certificates} where owners will need to apply from a \textbf{certificate authority}.
+            \end{knowledge}
+
+            \begin{knowledge}
+                The \textbf{domain name server (DNS)} is a special kind of server that stores the domain names with their equivilant IP address as a form of database.
+            \end{knowledge}
+
+            \begin{knowledge}
+                The following is the process involved in retrieving web pages (for a standard HTTP protocol):
+                \begin{itemize}
+                    \item The user opens the web browser and enters the URL into the \textbf{web browser}.
+                    \item The web browser sends the URL to the \textbf{DNS}.
+                    \item The DNS server returns the IP back to the web browser.
+                    \item The web browser receives the IP address and uses the HTTP protocol to request the website to the web server.
+                    \item The webserver returns \textbf{Hypertext Markup Language (HTML), Cascading Style Sheets (CSS) and Activescript (JavaScript)} back to the browser using \textbf{HTTP}.
+                    \item The web browser then renders the website using those data.
+                \end{itemize}
+
+                HTTPS works similarly.
+                \begin{itemize}
+                    \item Before the web browser send request to ask for the web pages, it asks for a digital certificate.
+                    \item The web server sends a certificate to the web browser.
+                    \item The web browser checks whether the certificate is authentic.
+                    \item If yes, the web browser will continue transmission just as before but encrypted.
+                    \item If no, the web browser will report that the website is not secure.
+                \end{itemize}
+            \end{knowledge}
+
+            \begin{knowledge}
+                HTTPS works with a layer of security which may be \textbf{SSL (Secure Sockets Layer)} or \textbf{TLS (Transport Layer Security)}. These are the protocols used to encrypt.
+            \end{knowledge}
+
+            \begin{knowledge}
+                As described before, the web browser \textbf{renders} the data to let you see the webpage. Furthermore, it provides the following functions:
+                \begin{itemize}
+                    \item storing bookmarks and favourites,
+                    \item recording user history,
+                    \item allowing use of multiple tabs,
+                    \item storing cookies,
+                    \item providing navigation tools, and
+                    \item providing an address bar.
+                \end{itemize}
+            \end{knowledge}
+
+            \begin{knowledge}
+                Browsers use \textbf{cookies} to store certain data. Data stored includes
+                \begin{itemize}
+                    \item saving personal details,
+                    \item tracking user preferences,
+                    \item holding items in an online shopping cart, and
+                    \item storing login details.
+                \end{itemize}
+            \end{knowledge}
+
+            \begin{knowledge}
+                Cookies can be divided into two types, \textbf{session cookies} and \textbf{persistent cookies}. The former one refers to cookies that will be deleted when web page closes, while the latter one will be stored until an expiration data.
+            \end{knowledge}
 
         \subsection{Digital currency}
+            \begin{knowledge}
+                A \textbf{digital currency} is one that only exists electronically and exchanged by computers. Examples of use include \textbf{credit cards}, \textbf{mobile phone}, \textbf{smart watches}.
+            \end{knowledge}
+
+            \begin{knowledge}
+                One type of digital currency is called \textbf{cryptocurrency}, which is a digital currency that is managed by a delocalised systems (no central authority) -- bitcoin is a typical example of it. It is encrypted to prove that the transaction exists.
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Blockchain} is used to keep track of the payments, which is a chain of blocks/records that shows all transactions for a specific currency.
+                
+                It uses a \textbf{digital ledger}, which is a public record of all payments made with cryptocurrency. The records cannot be altered since the whole ledger is encrypted, but each record has a unique digital signature with time and date to prove that it exists.
+            \end{knowledge}
 
         \subsection{Cyber security}
+            \begin{knowledge}
+                \textbf{Brute force attack} is attempts to guess a password by trying all possibilities (all combinations). It is an automated process.
 
+                Solutions include
+                \begin{itemize}
+                    \item Strong passwords,
+                    \item Limiting number of login attempts,
+                    \item Biometric 'passwords', and
+                    \item 2 Factor Authentication (2FA).
+                \end{itemize}
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Data interception} is a process using pocket sniffer software to intercept data packets as they move through a network.
+
+                Solutions include
+                \begin{itemize}
+                    \item Use encryption SSL/TLS (HTTPS).
+                \end{itemize}
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Distributed denial of service (DDoS) attack} is a process of sending too many requests to a server in an attempt to make it crash. Distributed stands for requests being sent by a network of computers (botnet) infected by malware, and such computers are called 'Bot's/zombies.
+
+                Solutions include
+                \begin{itemize}
+                    \item Setting up a \textbf{proxy server} which acts like a filter/firewall of requests to prevent the real web server from crashing.
+                    \item Using \textbf{anti-malware} software to provent your computer becoming a bot.
+                \end{itemize}
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Hacking} stands for the act of trying to gain unauthorised access to data by exploiting a vulnerability, and the person acting is called a hacker.
+
+                Solutions include
+                \begin{itemize}
+                    \item Firewall, which manages outgoing and ingoing connections;
+                    \item Automatic OS updates;
+                    \item Strong passwords; and
+                    \item 2FA.
+                \end{itemize}
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Malware} stands for the malicious software designed to disrupt a computer or its data.
+
+                Examples include
+                \begin{center}
+                    \begin{tabular}{c|p{0.7\linewidth}}
+                        Virus & Downloaded onto your hard drive which replicates itself and corrupts stored data or uses up all avaliable memory, causing it to slow down or crash.\\\hline
+                        Worm & Similar to a virus, but looks for vulnerability holes in a network to use to replicate itself, and will clog up the bandwith of a network and slow it down.\\\hline
+                        Spyware & Downloaded onto your hard drive and designed to record actions on computer, such as keyloggers which records all key presses. Data is sent to the perpetrator where  it is analysed to identify patterns in data, which could reveal passwords. This could allow access to online accounts for fraud and identity theft.\\\hline
+                        Trojan Horse & A computer software that is used to disguise a malware. It is designed to look harmless (e.g. application or game) but contains a virus/worm.\\\hline
+                        Adware & A computer program designed to create pop up and banner adverts when online, whichcan be irritating and frustrating. When you click on the links the creaters are given money.\\\hline
+                        Ransomware & It is designed to encrypt your data and stop you from gaining access to it, and the creaters will demand a ransom for data to be decrypted. They will threaten to release and leak your stored data if ransom is not paid.
+                    \end{tabular}
+                \end{center}
+                
+                Solutions include
+                \begin{itemize}
+                    \item encrypting data,
+                    \item data trackup,
+                    \item firewall, and
+                    \item anti-malware software.
+                \end{itemize}
+
+                This is an example of an effective cybe security systems consisting of multiple layers.
+            \end{knowledge}
+            
+            \begin{knowledge}
+                \textbf{Pharming} is a malware that directs you to a fake website when you enter a genuine URL.
+
+                Solutions include
+                \begin{itemize}
+                    \item anti-malware software, and
+                    \item users visually checking websites.
+                \end{itemize}
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Phishing} is the process of sending an email that encourages you to click on a link to a fake website.
+
+                Solutions include
+                \begin{itemize}
+                    \item Delete.
+                \end{itemize}
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Social engineering} is an attempt to manipulate or decieve people to release security information.
+
+                Solutions include
+                \begin{itemize}
+                    \item access control,
+                    \item high privacy level on social media, and
+                    \item awareness.
+                \end{itemize}
+            \end{knowledge}
+
+            \begin{knowledge}
+                You are expected to know the following solutions and come up with a solution to a given situation:
+                \begin{itemize}
+                    \item access levels
+                    \item anti-malware including anti-virus and anti-spyware
+                    \item authentication (username and password, biometrics, two-step verification)
+                    \item automating software updates
+                    \item checking the spelling and tone of communications
+                    \item checking the URL attached to a link
+                    \item firewalls
+                    \item privacy settings
+                    \item proxy-servers
+                    \item secure socket layer (SSL) security protocol.
+                \end{itemize}
+            \end{knowledge}
     \section{Automated and emerging technologies}
 
         \subsection{Automated Systems}
