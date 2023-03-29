@@ -529,12 +529,170 @@
     \section{Software}
 
         \subsection{Types of Software and Interrupts}
+            \begin{knowledge}
+                \textbf{Softwares} can be divided into two categories, \textbf{System Software} and \textbf{Application Software}.
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{System Software} provides the services that the computer requires, including operating system and utility software. \textbf{Application Software}provides the services that the user requires.
+            \end{knowledge}
+
+            \begin{knowledge}
+                Functions of an \textbf{Operating System} include:
+                \begin{itemize}
+                    \item managing files,
+                    \item handling interrupts,
+                    \item providing an interface (e.g. graphical GUI, command line, natural language),
+                    \item managing peripherals (I/O devices) and drivers,
+                    \item managing memory,
+                    \item managing multitasking (by interrupts),
+                    \item providing a platform for running applications,
+                    \item providing system security, and
+                    \item managing user accounts.
+                \end{itemize}
+            \end{knowledge}
+
+            \begin{knowledge}
+                Examples of \textbf{Application Softwares} include:
+                \begin{itemize}
+                    \item word processor,
+                    \item spreadsheet,
+                    \item database, and
+                    \item web browser.
+                \end{itemize}
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Application software} runs on \textbf{operating system}, which runs on \textbf{firmware}, which is loaded by the \textbf{bootstrap}, which directly runs on the hardware. 
+            \end{knowledge}
+
+            \begin{knowledge}
+                An \textbf{interrupt} is a signal to tell the processor to tell it that something needs attention. Two types are \textbf{Software Interrupt} and \textbf{Hardware Interrupt}.
+            \end{knowledge}
+
+            \begin{knowledge}
+                Examples of software interrupts include:
+                \begin{itemize}
+                    \item Division by 0;
+                    \item Two processes attempting to access the same memory location;
+                    \item Request for input;
+                    \item Output required;
+                    \item Data required from memory.
+                \end{itemize}
+
+                Examples of hardware interrupts include:
+                \begin{itemize}
+                    \item Data input (e.g. keyboard input/mouse click);
+                    \item Error from hardware (e.g. printer out of paper);
+                    \item Hardware failure;
+                    \item Hard drive signal that it has read data;
+                    \item New hardware device connected.
+                \end{itemize}
+            \end{knowledge}
+
+            \begin{knowledge}
+                Interrupts are handled by an \textbf{Interrupt Handler (IH)} with an \textbf{Interrupt Service Routine (ISR)}. The process is as follows:
+                \begin{itemize}
+                    \item When the CPU finishes an FDE cycle it checks the interrupt queue.
+                    \item It checks whether there is an interrupt with higher priority than the current task.
+                    \item If yes,
+                    \begin{itemize}
+                        \item It stores the current process and fetches the interrupt.
+                        \item It checks the source of the interrupt.
+                        \item It calls (executes) the relative ISR which handles the interrupt.
+                        \item The stored process is returned to the memory, or a higher-priority interrupt is fetched.
+                    \end{itemize}
+                    \item If not, it runs another FDE cycle.
+                \end{itemize}
+            \end{knowledge}
 
         \subsection{Types of Programming Language, Translators and Integrated Development Environments (IDEs)}
+            \begin{knowledge}
+                Programming languages include two types, \textbf{high-level} and \textbf{low-level}.
+            \end{knowledge}
+            
+            \begin{knowledge}
+                A high-level programming language uses human-style words for instructions. High-level programming languages are \textbf{portable} -- you can write it on one device and run it on another.
+            \end{knowledge}
+
+            \begin{knowledge}
+                Low-level programming languages can be further divided into \textbf{machine code} and \textbf{assembly language}. Machine code, as its name suggests, is machine-specific i.e. it is \textbf{non-portable}. Assembly uses \textbf{mnemonics} to represent code which is in the middle.
+            \end{knowledge}
+
+            \begin{knowledge}
+                High-level language v.s. low-level language:
+                \begin{center}
+                    \begin{tabular}{p{0.4\linewidth}|p{0.4\linewidth}}
+                        High-level languages & Low-level languages\\\hline\hline
+                        Easier for users to understand, read, write and ament. & More difficult to do so.\\\hline
+                        Easier to debug. & More difficult to do so.\\\hline
+                        Machine independent (portable). & Machine dependent (non-portable).\\\hline
+                        It must be converted to a low-level language to run. & Machine code does not require converting, assembly needs to be assembled but is significantly faster than the execution of a high-level language.\\\hline
+                        One statement can represent many low-level instructions. & Multiple statements are required to represent just one high-level statement.\\\hline
+                        Cannot directly manipulate the hardware. & Can directly manipulate hardware, e.g. writing to specific memory locations, which makes it more time and space efficient.
+                    \end{tabular}
+                \end{center}
+            \end{knowledge}
+
+            \begin{knowledge}
+                A \textbf{translator} is required to translate programs to machine code to execute.
+            \end{knowledge}
+
+            \begin{knowledge}
+                In a high-level language, you can use \textbf{interpreter} or a \textbf{compiler} to translate the instructions.
+
+                An \textbf{interpreter} translates and execute the code line-by-line. It stops where there is an error. It is more useful for program writing, but not for whole-system testing, since it needs to interpret everything every time code is executed.
+
+                A \textbf{compiler} translates the whole file all at once and produces an \textbf{executable file} which can be directly executed. It produces an error report of the whole program. It is suitable for whole-program testing.
+            \end{knowledge}
+
+            \begin{knowledge}
+                Interpreters v.s. compilers:
+                \begin{center}
+                    \begin{tabular}{p{0.4\linewidth}|p{0.4\linewidth}}
+                        Interpreter & Compiler\\\hline\hline
+                        Translates one line of code into machine code and then executes it. & Translates all lines of code into machine code, before executing the program. \\\hline
+                        Reports a syntax error as soon as it is picked up and stops the program until it is corrected. & Reports all syntax error at the same time, the program is not run until all errors are corrected. \\\hline
+                        Useful when writing a program. & Useful when a program has been finished and is ready for testing or distribution. \\\hline
+                        Code needs to be re-translated each time the program is run. & Code does not need re-translating.\\\hline
+                        Does not produce an executable file. & Produces an executable file.\\\hline
+                        Source code is required to run. & Source code is not required.\\\hline
+                        Interpreter software is required to run. & No other software is required.\\\hline
+                        Partially testing is avaliable. & Whole section of code must be completed to test.
+                    \end{tabular}
+                \end{center}
+            \end{knowledge}
+
+            \begin{knowledge}
+                An \textbf{Integrated Development Environment (IDE)} is an application software for you to write and test the code, including most/all software necessary. It includes an \textbf{editor}, the \textbf{translator} and also the \textbf{run-time environment} where the interface is shown while running.
+            \end{knowledge}
+
+            \begin{knowledge}
+                IDE functions include:
+                \begin{itemize}
+                    \item code editors;
+                    \item run-time environment;
+                    \item translators;
+                    \item error diagnostics;
+                    \item auto-completion;
+                    \item auto-correction; and
+                    \item prettyprint.
+                \end{itemize}
+            \end{knowledge}
 
     \section{The internet and its uses}
         
         \subsection{The internet and the world wide web}
+
+            \begin{knowledge}
+                The \textbf{internet} is the infrastructure, especially the cable. It is just a type of WAN which is very special that covers the whole world. The \textbf{world wide web} is the collection of \textbf{websites} and \textbf{web pages} accessed using the internet
+            \end{knowledge}
+
+            \begin{knowledge}
+                A \textbf{URL} (uniform resource locator) is a text-based address for a web page. It contains the protocol, the domain name and the web page/file name.
+            \end{knowledge}
+
+            
 
         \subsection{Digital currency}
 
