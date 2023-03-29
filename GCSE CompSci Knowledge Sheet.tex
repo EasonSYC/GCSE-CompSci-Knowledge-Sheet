@@ -24,9 +24,7 @@
 
 \lhead{\Name}
 
-\newtheorem{method}{Method}[subsection]
-\newtheorem{knowledge}[method]{Knowledge}
-\newtheorem{example}[method]{Example}
+\newtheorem{knowledge}{Knowledge}[subsection]
 
 \begin{document}
 
@@ -37,6 +35,8 @@
     \section*{What is this and why this?}
     
         GCSE Computer Science is a knowledge-intense exam. Unlike what most people think, Computer Science is a subject that requires a lot of writing. Therefore, I made this document based on the CIE IGCSE Computer Science (9-1) Syllabus from 2023 onwards. I hope this could help with you IGCSE studies!
+
+        This is more of an extension of the syllabus and the structure is exactly the same. However, it provides some sample answers for those questions in the syllabus and is a good way to refer to your self assessment based on the syllabus.
 
         I am also an IGCSE student so errors are inevitable in this document. Feel free to email \href{eason.syc@icloud.com}{eason.syc@icloud.com} to point out any mistakes or submit an issue on the GitHub page!
         
@@ -55,7 +55,7 @@
             Binary is required as computers process data using logic gates and registers.
         \end{knowledge}
 
-        \begin{method}
+        \begin{knowledge}
             Digits in decimal, hexadecimal, binary can be converted as
             \begin{center}
                 \begin{tabular}{r|c|c|c|c}
@@ -73,19 +73,19 @@
                     \textbf{Binary} & 1100 & 1101 & 1110 & 1111\\
                 \end{tabular}
             \end{center}
-        \end{method}
+        \end{knowledge}
         
-        \begin{method}
+        \begin{knowledge}
             To convert binary into hexadecimal, we map four consecutive digits (divide from the right) to one digit in hexadecimal. Vice versa.
-        \end{method}
+        \end{knowledge}
 
-        \begin{method}
+        \begin{knowledge}
             To convert binary or hexadecimal into denary, we write the digit it represents on top (e.g. 2, 4, 8 or 16, 256, 4096), and times it with the number below and sum them together. Write from right to left.
-        \end{method}
+        \end{knowledge}
 
-        \begin{method}
+        \begin{knowledge}
             To convert denary into binary or hexadeximal, we write down the result of integer division of the number and the base, and use the remainder to continue. When we get a remainder that is less than the base, we write the result backwards.
-        \end{method}
+        \end{knowledge}
 
         \begin{knowledge}
             Programmers use hexadecimals as it is easier for human to read. Examples include MAC code.
@@ -150,19 +150,19 @@
             \end{itemize}
         \end{knowledge}
 
-        \begin{method}
+        \begin{knowledge}
             Way to calculate size of image:
             \[
                 \text{size of image} = \text{width of image} \times \text{height of image} \times \text{colour depth of image} \times \text{number of images in file}.
             \]
-        \end{method}
+        \end{knowledge}
 
-        \begin{method}
+        \begin{knowledge}
             Way to calculate size of sound track:
             \[
                 \text{size of soundtrack} = \text{sample rate} \times \text{sample resolution} \times \text{length of soundtrack}.
             \]
-        \end{method}
+        \end{knowledge}
 
         \begin{knowledge}
             \textbf{Data compression} is the method used to reduce the size of a file. It is necessary as
@@ -886,16 +886,134 @@
     \section{Automated and emerging technologies}
 
         \subsection{Automated Systems}
+            \begin{knowledge}
+                An \textbf{automated system} performs actions without the interference with humans and are widely used. It usually involves sensors, microprocessors and actuators (which are introduced previously).
+            \end{knowledge}
+
+            \begin{knowledge}
+                An automated system works as follows:
+                \begin{itemize}
+                    \item Sensors retrieve data from the environment and outputs analogue signal to the ADC.
+                    \item The ADC (analogue-to-digital) converter converts this signal to digital and outputs to microprocessor.
+                    \item The microprocessor reads the data, compare with stored values (or a simple algorithm) and make a decision of whether and how to use the actuator to affect the environment.
+                    \item It outputs a signal to the DAC (digital-to-analogue) converter and is converted to analogue signal.
+                    \item The actuators receive the analogue signal and causes something to happen, e.g. opening a door, switching on a fan/a heater.
+                \end{itemize}
+
+                The above described process is repeated.
+            \end{knowledge}
+
+            \begin{knowledge}
+                This is an example of a \textbf{closed feedback loop}:
+                \begin{itemize}
+                    \item The use of an actuator changes the environment;
+                    \item the change in environment is measured by sensors; and
+                    \item the sensor readings are used to influence future decisions about the use of the actuator.
+                \end{itemize}
+            \end{knowledge}
+
+            \begin{knowledge}
+                Do consider the following while asked for automated systems:
+                \begin{itemize}
+                    \item Initial cost (the cost for the infrastructure),
+                    \item running cost (e.g. cost of electricity and maintenance),
+                    \item safety (usually safer since people may be distracted),
+                    \item replacing people's jobs (usually both replaced and created),
+                    \item continous work all day every day (the result of it), and
+                    \item precision (usually higher since no human errors are made).
+                \end{itemize}
+
+                The given scenarios will be some that you are familiar with, i.e. limited to
+                \begin{itemize}
+                    \item industry,
+                    \item transport,
+                    \item agriculture,
+                    \item weather,
+                    \item gaming,
+                    \item lighting, and
+                    \item science.
+                \end{itemize}
+            \end{knowledge}
 
         \subsection{Robotics}
 
+            \begin{knowledge}
+                \textbf{robotics} is the science of the design, construction and operation of the robots.
+                
+                A \textbf{robot} is:
+                \begin{itemize}
+                    \item programmable,
+                    \item semi-autonomous (need human supervision only),
+                    \item mechanical device that performs an action (often human action),
+                    \item using sensors to measure the environment,
+                    \item using actuators to move themself/other objects, and
+                    \item using microprocessors to control what they do.
+                \end{itemize}
+            \end{knowledge}
+
+            \begin{knowledge}
+                Robots may be used in multiple fields, including (with examples):
+                \begin{itemize}
+                    \item industry e.g. print spraying,
+                    \item transport e.g. driverless trains,
+                    \item agriculture e.g. moving lawns,
+                    \item medicine e.g. surgery,
+                    \item domestic e.g. washing machines and drones,
+                    \item entertainment e.g. dance, music and light.
+                \end{itemize}
+            \end{knowledge}
         \subsection{Artificial Intelligence}
 
-    \section{Pseudocode Syntax}
+            \begin{knowledge}
+                \textbf{Artificial Intelligence (AI)} is the development of programs to simulate intelligent human behaviour, with certain functions such as:
+                \begin{itemize}
+                    \item image recognition,
+                    \item speech recognition,
+                    \item natural language,
+                    \item computer games, and
+                    \item diagnostis systems.
+                \end{itemize}
+            \end{knowledge}
 
+            \begin{knowledge}
+                Four key features of AI are:
+                \begin{itemize}
+                    \item collection of data,
+                    \item a set of programmed rules,
+                    \item the ability to reason, and
+                    \item the ability to learn and adapt. This may not be true for all AI systems but ML (machine learning) will do so as we will explain in the next point.
+                \end{itemize}
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Machine learning} (ML) is the process of adaptive behaviour as a result of experience (i.e. data).
+
+                It can be divided into two types: \textbf{supervised} and \textbf{unsupervised}. Supervised stands for the user telling the program what the data means (labelled), while unsupervised for the opposite, which requires the program to identify pattern.
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Expert systems} trys to replicate knowledge of a human expert to diagonise a problem.
+
+                The architecture includes
+                \begin{itemize}
+                    \item UI (user interface): where they ask questions and you answer;
+                    \item Inference engine: deciding which question to ask next;
+                    \item Rule base: linking facts; and
+                    \item Knowledge base: a list of facts.
+                \end{itemize}
+            \end{knowledge}
+            
+    \section{Algorithm design and problem-solving}
+
+    \section{Programming}
+        \subsection{Programming concepts}
+        
+        \subsection{Arrays}
+
+        \subsection{File Handling}
     \section{Databases}
 
-    \section{Boolean Logic}
+    \section{Boolean logic}
 
     \section*{Afterwords}
         
