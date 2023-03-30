@@ -883,7 +883,8 @@
                     \item secure socket layer (SSL) security protocol.
                 \end{itemize}
             \end{knowledge}
-    \section{Automated and emerging technologies}
+
+            \section{Automated and emerging technologies}
 
         \subsection{Automated Systems}
             \begin{knowledge}
@@ -1002,20 +1003,400 @@
                     \item Knowledge base: a list of facts.
                 \end{itemize}
             \end{knowledge}
-            
+
     \section{Algorithm design and problem-solving}
+        \begin{knowledge}
+            The \textbf{program development life cycle} includes four stages,
+            \begin{itemize}
+                \item analysis: abstracting, decomposition, and identification of problem and requirements;
+                \item design: further decomposition, creating structure diagrams, flowcharts and pseudocode;
+                \item coding: writing program code and iterative testing;
+                \item testing: testing program code with test data.
+            \end{itemize}
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{Sub-systems} make up computer systems and they are even made up of further sub-systems.
+
+            We could decompose a problems into four main parts: inputs, processes, outputs and storage.
+
+            We could use a structure diagram (which looks like a tree), a flowchart or pseudocode to design a solution.
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{Flowchart} is a diagram representing a algorithm, and its syntax involves the following:
+            \begin{itemize}
+                \item Flow line, which is an arrow representing passing between states;
+                \item Process, a rectangle representing some operations being done;
+                \item Subroutine, a rectangle with two vertical lines close to the sides, representing calling a separate flowchart;
+                \item I/O, a parallelogram representing input/output;
+                \item Decision, a rhombus used to represent a Yes/No a.k.a. True/False decision being made based on a condition; and
+                \item Terminator, a oval used to fill in Start or Stop.
+            \end{itemize}
+        \end{knowledge}
+
+        \begin{knowledge}
+            Note: time complexity not required, just for reference how quick each algorithm is.
+            \begin{itemize}
+                \item A \textbf{Linear Search} algorithm searches for a value (and its position) in a given list (usually unsorted, if sorted we usually use binary search which has time complexity of $\mathcal{O}(\log n)$), with time complexity of $\mathcal{O}(n)$ (not required but good to know);
+                \item A \textbf{Bubble Sort} algorithm sorts elements by comparing neighbouring elements and swapping them into the correct sequence, which has a time complexity of $\mathcal{O}(n^2)$. (Faster algorithms include merge sort and quicksort which has a time complexity of $\mathcal{O}(n \log n)$.)
+                \item A \textbf{totalling} algorithm finds the sum of elements in a list by iterating. It has a time complexity of $\mathcal{O}(n)$ but with pre-processing the time complexity could be reduced to $\mathcal{O}(1)$.
+                \item A \textbf{counting} algorithm finds the number of elements (with a certain value) in a list. This should have a time complexity of $\mathcal{O}(n)$, but pre-processing data (during input) gives us a time complexity of $\mathcal{O}(1)$.
+                \item Finding \textbf{maximum, minimum} are similar to the totalling (we do this by iterating) and has a time complexity of $\mathcal{O}(n)$ and $\mathcal{O}(1)$ without pre-processing.
+                \item Finding \textbf{average} is just dividing total by number of elements.
+            \end{itemize}
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{Validation check} is the check on data to make sure is reasonable. Checks inlude:
+            \begin{itemize}
+                \item Range check,
+                \item Length check,
+                \item Type check (e.g. str or int),
+                \item Presence check (e.g. NULL),
+                \item Format check (e.g. 1 or one),
+                \item Check digit.
+            \end{itemize}
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{Verification} is the check to make sure the input data is correct. Checks include visual check and double entry check.
+        \end{knowledge}
+
+        \begin{knowledge}
+            \textbf{Testing data} is the data you input to a program to test whether it works properly or not. Types include:
+            \begin{itemize}
+                \item Normal: data that program should accept;
+                \item Abnormal: data that program should not accept;
+                \item Extreme: data at the edge of what's allowed;
+                \item Boundry: data at two edges of what's allowed (just allowed and just disallowed).
+            \end{itemize}
+        \end{knowledge}
 
     \section{Programming}
         \subsection{Programming concepts}
+            \begin{knowledge}
+                Data types include: integer, real (a.k.a. floating point/float/double), char (character), string and boolean (T/F). They are \(\mathtt{INTEGER}, \mathtt{REAL}, \mathtt{CHAR}, \mathtt{STRING}, \mathtt{BOOLEAN}\) respectively.
+
+                The way to declare a variable is as follows in pseudocode:
+                \[
+                    \mathtt{DECLARE\ <identifier>:<datatype>}
+                \]
+                and the way to declare a constant is:
+                \[
+                    \mathtt{CONSTANT\ <identifier>\ \leftarrow\ <value>}.
+                \]
+            \end{knowledge}
         
+            \begin{knowledge}
+                The sign $\leftarrow$ is called \textbf{assignment}, which is used as
+                \[
+                    \mathtt{<identifier>\ \leftarrow\ <value>}.
+                \]
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Input and output} are two very important things for a program. Their syntax are
+                \[
+                    \mathtt{INPUT\ <identifier>}
+                \]
+                and
+                \[
+                    \mathtt{OUTPUT\ <value(s)>}.
+                \]
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Sequence} is the idea of executing code in a certain order, it does not have a specific syntax - just don't write code the other way around.
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Selection} is when logical operators are use to determine which branch a program goes to. Two selection syntax are if and case, with syntax as follows:
+                \begin{align*}    
+                    &\mathtt{IF\ <condition>\ THEN}\\
+                    &\qquad \mathtt{<statements>}\\
+                    &\mathtt{ELSE\ IF\ <condition>\ THEN}\\
+                    &\qquad \mathtt{<statements>}\\
+                    &\ldots\\
+                    &\mathtt{ELSE}\\
+                    &\qquad \mathtt{<statements>}\\
+                    &\mathtt{ENDIF}
+                \end{align*}
+                and
+                \begin{align*}
+                    &\mathtt{CASE\ OF\ <identifier>}\\
+                    &\qquad \mathtt{<value\ 1>:<statement>}\\
+                    &\qquad \mathtt{<value\ 2>:<statement>}\\
+                    &\qquad \ldots\\
+                    &\qquad \mathtt{OTHERWISE:<statement>}\\
+                    &\mathtt{ENDCASE}
+                \end{align*}
+
+                The first is useful when a small number of selection is necessary while the second is useful when there are a lot of cases and each case only requires one statement (important! or it will look weird).
+
+                Notice that the otherwise is optional but I strongly recommend writing it.
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Iteration} or \textbf{loop} is a structure when a statement (or multiple statements) are run multiple times. We have \textbf{for (count-controlled)}, \textbf{while (pre-condition)} and \textbf{repeat until (post-condition)} loops.
+
+                \begin{align*}
+                    &\mathtt{FOR\ <identifier>\ \leftarrow\ <value1>\ TO\ <value2>\ STEP\ <increment>}\\
+                    &\qquad \mathtt{<statements>}\\
+                    &\mathtt{NEXT\ <identifier>}
+                \end{align*}
+
+                Note that the step increment in for loop is optional and usually does not appear (unless you want to do a loop reversed).
+
+                \begin{align*}
+                    &\mathtt{WHILE\ <condition>\ DO}\\
+                    &\qquad \mathtt{<statements>}\\
+                    &\mathtt{ENDWHILE}
+                \end{align*}
+
+                \begin{align*}
+                    &\mathtt{REPEAT}\\
+                    &\qquad \mathtt{<statements>}\\
+                    &\mathtt{UNTIL\ <condition>}
+                \end{align*}
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{String manipulation} includes length, substring, upper case, and lower case. We use
+                \[
+                    \mathtt{LENGTH(<identifier>)}
+                \]
+                to find a string,
+                \[
+                    \mathtt{LCASE(<identifier>)}
+                \]
+                to convert everything to lower case,
+                \[
+                    \mathtt{UCASE(<identifier>)}
+                \]
+                to convert everything to upper case, and
+                \[
+                    \mathtt{SUBSTRING(<identifier>, <start>, <length>)}
+                \]
+                to find the substring from the start position with a certain length.
+
+                Notice that generally string starts at position 1 (by syllabus pseudocode syntax section) but the syllabus also states that you can treat it as start position 0.
+            \end{knowledge}
+
+            \begin{knowledge}
+                \(\mathtt{+}, \mathtt{-}, \mathtt{*}, \mathtt{/}, \mathtt{\wedge} \text{(raised to the power of)}\) are required mathematical arithmetic operations. Furthermore,
+                \[
+                    \mathtt{DIV(<identifier\ 1>, <identifier\ 2>)}
+                \]
+                gives the integer division result (with fractional part discarded), and
+                \[
+                    \mathtt{MOD(<identifier\ 1>, <identifier\ 2>)}
+                \]
+                gives the remainder of the division result.
+            \end{knowledge}
+
+            \begin{knowledge}
+                \(\mathtt{=}, \mathtt{<}, \mathtt{>}, \mathtt{<=}, \mathtt{>=}, \mathtt{<>} \text{(not equal to)}\) are required logic operators (which are used in conditions).
+            \end{knowledge}
+
+            \begin{knowledge}
+                \(\mathtt{AND}, \mathtt{OR}, \mathtt{NOT}\) are required boolean operators. They can be used to combine conditions together to give a result.
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Nested statements} are when you put one layer of iteration/selection around another (for example, in a bubble sort).
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Subroutine} is a self-contained sub-module of a code (i.e. a sub-system) which can be \textbf{called} in the main program.
+                
+                \textbf{Procedures} operates on something while \textbf{functions} produces a return value.
+                
+                \textbf{Parameters} are inputs to subroutines.
+
+                To define a procedure,
+                \begin{align*}
+                    &\mathtt{PROCEDURE\ <identifier> (<param1>: <datatype>, <param2>:<datatype>, \ldots)}\\
+                    &\qquad \mathtt{<statements>}\\
+                    &\mathtt{ENDPROCEDURE}
+                \end{align*}
+                and to call it,
+                \[
+                    \mathtt{CALL\ <identifier> (Value1, Value2, \ldots)}.
+                \]
+
+                To define a function,
+                \begin{align*}
+                    &\mathtt{FUNCTION\ <identifier> (<param1>: <datatype>, <param2>:<datatype>, \ldots)}\\
+                    &\qquad \qquad \qquad \qquad \mathtt{RETURNS <datatype>}\\
+                    &\qquad \mathtt{<statements>}\\
+                    &\qquad \mathtt{RETURN <value>}\\
+                    &\mathtt{ENDFUNCTION}
+                \end{align*}
+                and to call it,
+                \[
+                    \mathtt{<identifier> (Value1, Value2, \ldots)}.
+                \]
+
+            \end{knowledge}
+
+            \begin{knowledge}
+                \textbf{Local} variables are declared and used in a loop/branch/subroutine (and are invalid outside it), and \textbf{global} variables are the ones which can be used anywhere.
+            \end{knowledge}
+
+            \begin{knowledge}
+                The function
+                \[
+                    \mathtt{ROUND(<identifier>, <places>)}
+                \]
+                is used to round a certain variable to a certain decimal place.
+
+                The function
+                \[
+                    \mathtt{RANDOM()}
+                \]
+                returns a random value between 0 and 1 inclusive.
+            \end{knowledge}
+            
+            \begin{knowledge}
+                It is a good habit to make variable/constant/array/procedure/function names (identifiers) understandable, and to use procedures and functions where necessary and suitable.
+            \end{knowledge}
         \subsection{Arrays}
+            
+            \begin{knowledge}
+                \textbf{Arrays} are just simply a list of elements. \textbf{2-D Arrays} is just simply a list of lists.
+
+                To declare a 1-D array we use
+                \[
+                    \mathtt{DECLARE\ <identifier>:ARRAY[<1>:<u>]\ OF\ <data\ type>}
+                \]
+                and use
+                \[
+                    \mathtt{<identifier>[<index>]}
+                \]
+                to call it. To declare a 2-D array we use
+                \[
+                    \mathtt{DECLARE\ <identifier>:ARRAY[<11>:<u1>, <12>:<u2>]\ OF\ <data\ type>}
+                \]
+                and use
+                \[
+                    \mathtt{<identifier>[<index1>, <index2>]}
+                \]
+                to call it.
+
+                At a GCSE level a 2-D array is a table, but at a higher level it is not necessary.
+
+                Notice that in the syllabus it said that beginning index can be either 0 or 1.
+            \end{knowledge}
 
         \subsection{File Handling}
+            
+            \begin{knowledge}
+                \textbf{File handling} is important, to save and read data easier externally into an external file. There are two types of file modes, read (\(\mathtt{READ}\)) and write (\(\mathtt{WRITE}\)).
+
+                To open a file we write
+                \[
+                    \mathtt{OPENFILE <File\ identifier> FOR <File\ mode>},
+                \]
+                and to read/write from a file we do
+                \[
+                    \mathtt{READFILE <File\ identifier>, <Variable>}
+                \]
+                and
+                \[
+                    \mathtt{WRITEFILE <File\ identifier>, <Variable>}
+                \]
+                respectively.
+
+                To close a file we write (it is a good habit to close after using)
+                \[
+                    \mathtt{CLOSEFILE <File\ identifier>}.
+                \]
+            \end{knowledge}
+
+        \subsection{Sample Pseudocode for Required Algorithms}
+            \begin{knowledge}
+                An example code for bubble sort is:
+                \begin{align*}
+                    &\mathtt{FUNCTION\ BubbleSort\ (length:\ INTEGER,\ list:ARRAY [1:len]\ OF\ REAL)}\\
+                    &\qquad \qquad \qquad \qquad \mathtt{RETURNS\ ARRAY [1:len]\ OF\ INTEGER}\\
+                    &\qquad \mathtt{DECLARE\ swapped:BOOLEAN}\\
+                    &\qquad \mathtt{swapped \leftarrow TRUE}\\
+                    &\qquad \mathtt{WHILE\ swapped}\\
+                    &\qquad \qquad \mathtt{swapped \leftarrow FALSE}\\
+                    &\qquad \qquad \mathtt{FOR\ i\ \leftarrow\ 1\ TO\ len - 1\ DO}\\
+                    &\qquad \qquad \qquad \mathtt{IF\ list[i] > list[i + 1]\ THEN}\\
+                    &\qquad \qquad \qquad \qquad \mathtt{DECLARE\ tmp:REAL}\\
+                    &\qquad \qquad \qquad \qquad \mathtt{tmp\ \leftarrow\ list[i + 1]}\\
+                    &\qquad \qquad \qquad \qquad \mathtt{list[i + 1]\ \leftarrow\ list[i]}\\
+                    &\qquad \qquad \qquad \qquad \mathtt{list[i]\ \leftarrow\ tmp}\\
+                    &\qquad \qquad \qquad \qquad \mathtt{swapped \leftarrow TRUE}\\
+                    &\qquad \qquad \qquad \mathtt{ENDIF}\\
+                    &\qquad \qquad \mathtt{NEXT\ i}\\
+                    &\qquad \mathtt{ENDWHILE}\\
+                    &\qquad \mathtt{RETURN\ list}\\
+                    &\mathtt{ENDFUNCTION}
+                \end{align*}
+            \end{knowledge}
+
+            \begin{knowledge}
+                An example code for linear seach and counting is:
+
+                \begin{align*}
+                    &\mathtt{FUNCTION\ LinearSearch\ (length:\ INTEGER,\ list:ARRAY [1:len]\ OF\ REAL,\ val:REAL)}\\
+                    &\qquad \qquad \qquad \qquad \mathtt{RETURNS\ INTEGER, BOOL, INTEGER}\\
+                    &\qquad \text{// This program will return the LAST index found just for counting.}\\
+                    &\qquad \text{// To return the first one just RETURN after found.}\\
+                    &\qquad \mathtt{DECLARE\ count:INTEGER}\\
+                    &\qquad \mathtt{DECLARE\ found:BOOLEAN}\\
+                    &\qquad \mathtt{DECLARE\ indexFound:INTEGER}\\
+                    &\qquad \mathtt{count \leftarrow 0}\\
+                    &\qquad \mathtt{found \leftarrow FALSE}\\
+                    &\qquad \mathtt{indexFound \leftarrow -1}\\
+                    &\qquad \mathtt{FOR\ i\ \leftarrow\ 1\ TO\ len\ DO}\\
+                    &\qquad \qquad \mathtt{IF\ list[i]=val\ THEN}\\
+                    &\qquad \qquad \qquad \mathtt{count \leftarrow count + 1}\\
+                    &\qquad \qquad \qquad \mathtt{indexFound \leftarrow i}\\
+                    &\qquad \qquad \qquad \mathtt{found \leftarrow TRUE}\\
+                    &\qquad \qquad \mathtt{ENDIF}\\
+                    &\qquad \mathtt{NEXT\ i}\\
+                    &\qquad \mathtt{RETURN\ count, found, indexFound}\\
+                    &\mathtt{ENDFUNTION}
+                \end{align*}
+            \end{knowledge}
+
+            \begin{knowledge}
+                An example code for finding the total, maximum, minimum, and average of a list:
+
+                \begin{align*}
+                    &\mathtt{FUNCTION\ TotMaxMinAvg\ (length:\ INTEGER,\ list:ARRAY [1:len]\ OF\ REAL)}\\
+                    &\qquad \qquad \qquad \qquad \mathtt{RETURNS\ REAL, REAL, REAL, REAL}\\
+                    &\qquad \mathtt{DECLARE\ tot:REAL}\\
+                    &\qquad \mathtt{DECLARE\ max:REAL}\\
+                    &\qquad \mathtt{DECLARE\ min:REAL}\\
+                    &\qquad \mathtt{DECLARE\ avg:REAL}\\
+                    &\qquad \mathtt{tot \leftarrow 0}\\
+                    &\qquad \mathtt{max \leftarrow -INF}\\
+                    &\qquad \mathtt{min \leftarrow INF}\\
+                    &\qquad \mathtt{FOR\ i\ \leftarrow\ 1\ TO\ length\ DO}\\
+                    &\qquad \qquad \mathtt{tot \leftarrow tot + list[i]}\\
+                    &\qquad \qquad \mathtt{IF\ list[i] > max\ THEN}\\
+                    &\qquad \qquad \qquad \mathtt{max \leftarrow list[i]}\\
+                    &\qquad \qquad \mathtt{ENDIF}\\
+                    &\qquad \qquad \mathtt{IF\ list[i] < min\ THEN}\\
+                    &\qquad \qquad \qquad \mathtt{min \leftarrow list[i]}\\
+                    &\qquad \qquad \mathtt{ENDIF}\\
+                    &\qquad \mathtt{NEXT\ i}\\
+                    &\qquad \mathtt{avg \leftarrow tot / len}\\
+                    &\qquad \mathtt{RETURN\ tot, max, min, avg}\\
+                    &\mathtt{ENDFUNCTION}
+                \end{align*}
+            \end{knowledge}
     \section{Databases}
 
     \section{Boolean logic}
 
     \section*{Afterwords}
-        
+        I hate typing Pseudocode like this in \LaTeX!
 
 \end{document}
